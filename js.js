@@ -44,8 +44,9 @@ function imgCapcha() {
 };
  function checkCapcha() {
     if (valueKeyCapcha.value==massCapcha[massCapcha.counter].key){
+        console.log(massCapcha.counter);
         massageCapcha.innerHTML='Спасибо, код введен верно!';
-   } else { massageCapcha.innerHTML='Код введен НЕверно попробуйте еще!';
+   } else { massageCapcha.innerHTML='Код введен НЕверно, попробуйте еще!';
             imgCapcha();}
  };
 imgCapcha();
