@@ -1,37 +1,52 @@
 var massCapcha=[
     {
-        'counter':0,
-    }
-    {
-        'key': 1231,
-        'imgSrc': '',
+        'key': '28ivw',
+        'imgSrc': 'capcha-1.jpg',
     },
     {
-        'key': 1231,
-        'imgSrc': '',
+        'key': 'k4ez',
+        'imgSrc': 'capcha-2.jpg',
     },
     {
-        'key': 1231,
-        'imgSrc': '',
+        'key': 'FH2DE',
+        'imgSrc': 'capcha-3.jpg',
     },
     {
-        'key': 1231,
-        'imgSrc': '',
+        'key': 'xmqKi',
+        'imgSrc': 'capcha-4.jpg',
     },
     {
-        'key': 1231,
-        'imgSrc': '',
+        'key': 'e5hb',
+        'imgSrc': 'capcha-5.jpg',
     },
     {
-        'key': 1231,
-        'imgSrc': '',
+        'key': 'xDHYN',
+        'imgSrc': 'capcha-6.jpg',
+    },
+    {
+        'counter': 0,
     },
 ];
+
+
+var divCapcha=document.querySelector('#capcha');
+var valueKeyCapcha=document.querySelector('.capcha-key');
+var massageCapcha = document.querySelector('#capcha-massage');
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
 };
+
 function imgCapcha() {
-    var i;
-    i=getRandomInt(0, massCapcha.length);
-    document.querySelector('#capcha').style.background=
-}
+    massCapcha.counter=getRandomInt(0, (massCapcha.length-1));
+    //проверить на совпадение с текущей
+    divCapcha.style.background='url(images/'+massCapcha[massCapcha.counter].imgSrc+') no-repeat';
+    divCapcha.style.backgroundSize = 'contain';
+};
+ function checkCapcha() {
+    if (valueKeyCapcha.value==massCapcha[massCapcha.counter].key){
+        massageCapcha.innerHTML='Спасибо, код введен верно!';
+   } else { massageCapcha.innerHTML='Код введен НЕверно попробуйте еще!';
+            imgCapcha();}
+ };
+imgCapcha();
+document.querySelector('#button-capcha').addEventListener('click',checkCapcha);
